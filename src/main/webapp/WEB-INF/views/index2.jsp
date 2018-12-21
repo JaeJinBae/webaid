@@ -224,6 +224,10 @@
 		opacity:1 !important;
 		color: #f2799c !important;
 	}
+	.slick-prev, .slick-next {
+		width:49px;
+		height:46px;
+	}
 	footer{
 		width:100%;
 		background: #fde6ee;
