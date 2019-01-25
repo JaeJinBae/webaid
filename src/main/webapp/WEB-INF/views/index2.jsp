@@ -17,6 +17,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 @media only screen and (min-width:320px) and (max-width:767px){
+	body{
+		position: relative;
+	}
+	#btn{
+		position: fixed;
+		top:10px;
+		right:0px;
+	}
 	header{
 		width:100%;
 		background: #fff;
@@ -81,6 +89,14 @@
 }
 @media only screen and (min-width:768px) and (max-width:1099px){
 	@media only screen and (orientation:portrait){
+		body{
+			position: relative;
+		}
+		#btn{
+			position: fixed;
+			top:10px;
+			right:20px;
+		}
 		header{
 			width:100%;
 			background: #fff;
@@ -135,6 +151,14 @@
 		}
 	}
 	@media only screen and (orientation:landscape){
+		body{
+			position: relative;
+		}
+		#btn{
+			position: fixed;
+			top:10px;
+			right:20px;
+		}
 		header{
 			width:100%;
 			background: #fff;
@@ -190,6 +214,14 @@
 	}
 }
 @media only screen and (min-width:1100px){
+	body{
+		position: relative;
+	}
+	#btn{
+		position: fixed;
+		top:10px;
+		right:20px;
+	}
 	header{
 		width:100%;
 		background: #fff;
@@ -255,12 +287,13 @@
 			dots:true,
 		});	
 		
-		//이벤트 이미지맵 반응형
+		//이벤트 이미지맵 반응형 
 		$('img[usemap]').rwdImageMaps();
 	});
 </script>
 </head>
 <body>
+	<a id="btn" href="${pageContext.request.contextPath}/test1"><input type="button" value="NEXT"></a>
 	<header>
 		<div class="top">
 			<img src="${pageContext.request.contextPath}/resources/images/jDental/top.jpg" usemap="#topImg">
@@ -280,7 +313,7 @@
 			</div>
 		</div>
 	</section>
-	<footer>
+	<footer> 
 		<div class="bottom">
 			<img src="${pageContext.request.contextPath}/resources/images/jDental/bottom.jpg">
 		</div>
