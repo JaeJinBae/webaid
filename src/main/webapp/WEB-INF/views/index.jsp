@@ -67,6 +67,97 @@
 	.request_content{
 		width:1100px;
 		margin:0 auto;
+		overflow:hidden;
+	}
+	.request_content_box1{
+		width:400px;
+		float:left;
+	}
+	.request_content_box1 > h1{
+		font-size:45px;
+	}
+	.request_content_box1 > p{
+		font-size:18px;
+		line-height: 25px;
+	}
+	.req_txt1{
+		margin-top:20px;
+	} 
+	.req_txt2{ 
+		margin-bottom:20px;
+	}
+	.request_content_box1 > table tr >th{
+		font-weight:600;
+		text-align: left;
+		font-size:18px;
+		line-height: 30px;
+	}
+	.request_content_box1 > table tr >td{
+		font-size:18px;
+		padding-left:15px;
+	}
+	.request_content_box2{
+		width:650px;
+		float:right;
+	}
+	.request_content_box2 > form{
+		width:100%;
+		overflow:hidden;
+	}
+	.request_content_box2 > form > table{
+		float:left;
+		width: 300px;
+	}
+	.request_content_box2 > form > table td{
+		padding-bottom:10px;
+	}
+	.request_content_box2 > form > table td > input{
+		width:100%;
+		padding:5px;
+		font-size:18px;
+	}
+	.request_content_box2 > form > table td > textarea{
+		width:100%;
+		height:200px;
+		font-size:18px;
+		padding:5px;
+		resize:none;
+	}
+	.personal_info{
+		float:right;
+	}
+	.personal_info > h3{
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	.personal_info > .personal_txt{
+		width:320px;
+		height:300px;
+		overflow: scroll;
+		border:1px solid lightgray;
+	}
+	.personal_info > label{
+		display:block;
+		margin: 10px 0 24px 0;
+		font-size:14px;
+	}
+	.personal_info > label > input{
+		vertical-align: middle;
+		margin-right:5px;
+	}
+	.submitBtn{
+		width:100%;
+	}
+	.submitBtn > input[type='submit']{
+		width:100%;
+		height:40px;
+		text-align: center;
+		font-size:15px;
+		font-weight:bold;
+		letter-spacing:2px;
+		background: #033c60;
+		color:#fff;
+		border-style:none;
 	}
 	#footer{
 		width:100%;
@@ -91,22 +182,71 @@
 					<div class="request_content"><!-- http://www.way21.co.kr/homepage/homepage.php -->
 						<div class="request_content_box1">
 							<h1>견적문의</h1>
-							<p>
-								다양한 업종의 고객님들과 함께하며 쌓은 노하우로 최고의 컨설팅을 해드립니다.
-							</p>
-							
-						</div>
+							<p class="req_txt1">다양한 업종의 고객님들과 함께하며 쌓은 노하우로</p>
+							<p class="req_txt2">최고의 결과물을 전해드립니다.</p>
+							<table>
+								<tr>
+									<th>TEL .</th>
+									<td>053-983-7425 / 010-2837-7425</td>
+								</tr>
+								<tr>
+									<th>EMAIL .</th>
+									<td>master@webaid.co.kr</td>
+								</tr>
+								<tr>
+									<th>운영시간 .</th>
+									<td>AM 09:30 ~ PM 06:30</td>
+								</tr>
+								<tr>
+									<th>점심시간 .</th>
+									<td>PM 12:00 ~ PM 01:00</td>
+								</tr>
+								<tr>
+									<th>KAKAO .</th>
+									<td>webaid</td>
+								</tr>
+							</table>
+						</div><!-- request_content_box1 -->
 						<div class="request_content_box2">
 							<form action="" method="post">
 								<table>
-									<tr></tr>
+									<tr>
+										<td><input type="text" placeholder="회사"></td>
+									</tr>
+									<tr>
+										<td><input type="text" placeholder="담당자"></td>
+									</tr>
+									<tr>
+										<td><input type="text" placeholder="연락처"></td>
+									</tr>
+									<tr>
+										<td><input type="text" placeholder="이메일"></td>
+									</tr>
+									<tr>
+										<td><input type="text" placeholder="예산"></td>
+									</tr>
+									<tr>
+										<td><textarea name="" placeholder="문의내용"></textarea></td>
+									</tr>
 								</table>
+								<div class="personal_info">
+									<h3>개인정보수집에 관한 동의</h3>
+									<div class="personal_txt">
+										
+									</div>
+									<label>
+										<input type="checkbox" value="">위 개인정보수집에 동의합니다.
+									</label>
+									<div class="submitBtn">
+										<input type="submit" value="문의신청">
+									</div>
+								</div><!-- personal_info end -->
 							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						</div><!-- request_content_box2 end -->
+					</div><!-- request_content end -->
+				</div><!-- request_wrap end -->
+			</div><!-- container end -->
+		</div><!-- section end -->
 		<div id="footer">
 			<jsp:include page="include/footer.jsp"></jsp:include>
 		</div>
