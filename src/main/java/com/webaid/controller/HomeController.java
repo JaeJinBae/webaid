@@ -1,13 +1,21 @@
 package com.webaid.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.webaid.domain.NoticeVO;
+import com.webaid.domain.PageMaker;
+import com.webaid.domain.SearchCriteria;
+import com.webaid.service.NoticeService;
 
 /**
  * Handles requests for the application home page.
@@ -17,11 +25,14 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@Autowired
+	private NoticeService nService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("home");
 		
-		return "index";
+		return "main/index";
 	}
 	
 	@RequestMapping(value = "/menu01_1", method = RequestMethod.GET)
@@ -67,9 +78,21 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/menu04_1", method = RequestMethod.GET)
-	public String menu04_1() {
+	public String menu04_1(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		logger.info("menu04_1 GET");
 		
+		List<NoticeVO> list = nService.listSearch(cri);
+		
+		cri.setKeyword(null);
+		cri.setSearchType("n");
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+
+		model.addAttribute("list", list);
+		model.addAttribute("pageMaker", pageMaker);
 		return "menu04/menu04_01";
 	}
 	

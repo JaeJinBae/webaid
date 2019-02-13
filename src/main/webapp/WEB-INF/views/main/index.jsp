@@ -61,9 +61,9 @@
 	.content_wrap{
 		width:1100px;
 	}
-	.request_wrap{
+	.request_wrap{ 
 		width:100%;
-	}
+	} 
 	.request_content{
 		width:1100px;
 		margin:0 auto;
@@ -168,7 +168,7 @@
 <body>
 	<div id="all_wrap">
 		<div id="header">
-			<jsp:include page="include/header.jsp"></jsp:include>
+			<jsp:include page="../include/header.jsp"></jsp:include>
 		</div>
 		<div id="section">
 			<div class="mainBanner">
@@ -178,7 +178,7 @@
 				<div class="content_wrap">
 				
 				</div>
-				<div class="request_wrap">
+				<div class="request_wrap" id="request_wrap">
 					<div class="request_content"><!-- http://www.way21.co.kr/homepage/homepage.php -->
 						<div class="request_content_box1">
 							<h1>견적문의</h1>
@@ -248,7 +248,7 @@
 			</div><!-- container end -->
 		</div><!-- section end -->
 		<div id="footer">
-			<jsp:include page="include/footer.jsp"></jsp:include>
+			<jsp:include page="../include/footer.jsp"></jsp:include>
 		</div>
 	</div>
 </body>

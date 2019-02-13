@@ -75,7 +75,7 @@
 				<li><a href="${pageContext.request.contextPath}/menu02_1">제작소개</a></li>
 				<li><a href="${pageContext.request.contextPath}/menu03_1">포트폴리오</a></li>
 				<li><a href="${pageContext.request.contextPath}/menu04_1">고객센터</a></li>
-				<li><a href="${pageContext.request.contextPath}/menu04_2">견적문의</a></li>
+				<li><a href="${pageContext.request.contextPath}/#request_wrap">견적문의</a></li>
 			</ul>
 		</div><!-- menu_wrap end -->
 	</div><!-- header_container end -->
