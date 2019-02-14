@@ -200,7 +200,7 @@
 						<li><p>고객센터</p></li>
 						<li>
 							<ul class="subMidSmallUl">
-								<li><a href="#none">공지사항</a></li>
+								<li><a href="${pageContext.request.contextPath}/menu04_1">공지사항</a></li>
 								<li><a href="${pageContext.request.contextPath}/menu04_2">상담문의</a></li>
 							</ul>
 						</li>

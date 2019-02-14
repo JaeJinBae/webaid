@@ -33,12 +33,58 @@
 		height:400px;
 		background: green;
 	}
+	.sub_nav_wrap{
+		width:100%;
+		border:2px solid lightgray;
+	}
+	.subMidContent{
+		width:1100px;
+		margin:0 auto;
+	}
+	.subMidBigUl{
+		overflow: hidden;
+	}
+	.subMidBigUl > li{
+		float:left;
+		border-left:2px solid lightgray;
+		height:50px;
+		line-height: 50px;
+	}
+	.subMidBigUl > li:first-child > a{
+		margin:0 20px;
+	}
+	.subMidBigUl > li:first-child > a > img{
+		width:30px;
+		margin-top:12px;
+	}
+	.subMidBigUl > li > p{
+		font-size:20px;
+		font-weight: bold;
+		margin:0 35px;
+	}
+	.subMidSmallUl{
+		overflow: hidden;
+	}
+	.subMidSmallUl > li{
+		float:left;
+	}
+	.subMidSmallUl > li > a{
+		font-size:18px;
+		margin-left:30px;
+	}
+	.subMidSmallUl > li:last-child > a{
+		font-size:18px;
+		margin-left:30px;
+		color:#006fbd;
+		font-weight: bold;
+	}
 	.content_wrap{
 		width:100%;
 	}
 	.container{
 		width:1100px;
 		margin:0 auto;
+		padding:100px 0;
 	}
 	#footer{
 		width:100%;
@@ -58,6 +104,21 @@
 			<div class="sub_top_Banner">
 				
 			</div>
+			<div class="sub_nav_wrap">
+				<div class="subMidContent">
+					<ul class="subMidBigUl">
+						<li><a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/subMidHomeIcon.png"></a></li>
+						<li><p>제작소개</p></li>
+						<li>
+							<ul class="subMidSmallUl">
+								<li><a href="${pageContext.request.contextPath}/menu02_1">제작형태</a></li>
+								<li><a href="${pageContext.request.contextPath}/menu02_2">제작절차</a></li>
+								<li><a href="${pageContext.request.contextPath}/menu02_3">견적안내</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- subMidContent end -->
+			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
 				
