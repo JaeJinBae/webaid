@@ -218,7 +218,7 @@
 			<div class="content_wrap">
 				<div class="container">
 					<div class="form_wrap">
-						<form id="f1" action="" method="post"> 
+						<form id="f1" action="reg_advice" method="post"> 
 							<div class="sub_content01">
 								<h4 class="sub_title">- 개인정보처리방침</h4>
 								<div class="sub_content01_inner">
@@ -255,6 +255,10 @@
 										<tr>
 											<th>참고사이트2</th>
 											<td colspan="3"><input type="text" name="rsite2"></td>
+										</tr>
+										<tr>
+											<th>첨부파일</th>
+											<td colspan="3"><input type="file" name="upload"></td>
 										</tr>
 										<tr>
 											<th>문의사항</th>
