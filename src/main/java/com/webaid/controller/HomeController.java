@@ -25,14 +25,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
+import javax.mail.internet.MimeUtility;
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.util.SystemOutLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,18 +41,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.webaid.domain.AdviceVO;
+import com.webaid.controller.HomeController.ByteArrayDataSource;
+import com.webaid.controller.HomeController.MyAuthentication;
 import com.webaid.domain.NoticeVO;
 import com.webaid.domain.PageMaker;
 import com.webaid.domain.SearchCriteria;
 import com.webaid.service.NoticeService;
-import com.webaid.util.SendMailUtil;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController extends HttpServlet{
+public class HomeController{
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -135,79 +134,78 @@ public class HomeController extends HttpServlet{
 		return "menu04/menu04_02";
 	}
 
-	
-	@RequestMapping(value = "/reg_advice", method = RequestMethod.POST)
-	public String reg_advice(AdviceVO vo) { logger.info("reg_advice post");
-		SendMailUtil sendMail = new SendMailUtil();
-		System.out.println(vo.toString());
-		sendMail.SendEmail(vo);
-	
-	return "menu04/menu04_02"; }
- 
-
-	/*@RequestMapping(value = "/reg_advice", method = RequestMethod.POST)
-	public String reg_advice(AdviceVO vo, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		logger.info("reg_advice post");
-		String to = "bjj7425@naver.com";
+	@RequestMapping(value="/reg_advice", method=RequestMethod.POST)
+	public String WebSendMail(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		logger.info("reg_advice 진입");
+		
+		String to = "실제로 메일을 받을 주소";
+		
 		if (request.getContentType().startsWith("multipart/form-data")) {
 			try {
 				HashMap data = getMailData(request, response);
-				sendMail(data, vo);
+				sendMail(data);
 
-				ServletContext sc = getServletContext();
-
-				RequestDispatcher rd = sc.getRequestDispatcher("redirect:menu04/menu04_02");
-				rd.forward(request, response);
+				/*ServletContext sc = getServletContext();
+				RequestDispatcher rd = sc.getRequestDispatcher("sendMailWithFile.jsp");
+				rd.forward(request, response);*/
 			} catch (MessagingException ex) {
 				throw new ServletException(ex);
 			}
 		} else {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 		}
-
-		return "menu04/menu04_02";
-	}*/
-	
-	public class ByteArrayDataSource implements DataSource{
-		 
-	     byte[] bytes;
-	       String contentType;
-	       String name;
-	 
-	       ByteArrayDataSource(byte[] bytes, String contentType, String name) {
-	          this.bytes = bytes;
-	          if(contentType == null)
-	             this.contentType = "application/octet-stream";
-	          else
-	             this.contentType = contentType;
-	          this.name = name;
-	       }
-	 
-	       @Override
-	       public String getContentType() {
-	          return contentType;
-	       }
-	       
-	       @Override
-	       public InputStream getInputStream() {
-	          // 가장 마지막의 CR/LF를 없앤다.
-	          return new ByteArrayInputStream(bytes,0,bytes.length - 2);
-	       }
-	       
-	       @Override
-	       public String getName() {
-	          return name;
-	       }
-	       
-	       @Override
-	       public OutputStream getOutputStream() throws IOException {
-	          throw new FileNotFoundException();
-	       }
+		return "redirect:/menu02_2";
+		
 	}
-
+	
+	private void sendMail(HashMap mailData) throws MessagingException {
+        logger.info("sendMail 진입");
+        
+		System.setProperty("mail.smtp.starttls.enable", "true"); 
+        System.setProperty("mail.smtp.auth", "true"); 
+        System.setProperty("mail.smtp.host", "smtp.gmail.com");
+        System.setProperty("mail.smtp.port", "587");
+        
+        //구글 인증
+        Authenticator auth = new MyAuthentication();
+        Message msg = new MimeMessage(Session.getDefaultInstance(System.getProperties(), auth));
+        //받는사람
+        InternetAddress[] tos = InternetAddress.parse("bjj7425@naver.com");
+        msg.setRecipients(Message.RecipientType.TO, tos);
+        //한글을 위한 인코딩
+        msg.setHeader("Content-Type", "text/html; charset=UTF-8");
+        //제목
+        msg.setSubject("webaid 상세 문의신청입니다.");
+        msg.setSentDate(new Date());
+        
+        String PwMeg = "회사명:" + mailData.get("cname") + "\n" + "담당자:" + mailData.get("pname") + "\n" + "연락처:" + mailData.get("phone") + "\n" + "이메일:" + mailData.get("email")
+		+ "\n" + "현재사이트:" + mailData.get("nsite") + "\n" + "참고사이트1:" + mailData.get("rsite1") + "\n" + "참고사이트2:" + mailData.get("rsite2")
+		+ "\n" + "문의내용:"+mailData.get("content");
+        
+        //첨부파일이 없으면 내용만 전송
+        if(null == mailData.get("upload")){
+                 msg.setText(PwMeg);
+          } else {
+            //첨부파일이 있으면
+            BodyPart body = new MimeBodyPart();
+              BodyPart upload = (BodyPart)mailData.get("upload");
+              body.setText(PwMeg);
+              MimeMultipart multipart = new MimeMultipart();
+              multipart.addBodyPart(body);
+              multipart.addBodyPart(upload);
+              msg.setContent(multipart);
+              
+           }
+        //전송
+        Transport.send(msg);
+    }
 
 	private HashMap getMailData(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException, MessagingException {
+		logger.info("getMailData 진입");
+		
 		String boundary = request.getHeader("Content-Type");
 		int pos = boundary.indexOf('=');
 		boundary = boundary.substring(pos + 1);
@@ -229,12 +227,15 @@ public class HomeController extends HttpServlet{
 						// -2 to remove CR/LF
 						mailData.put(name, value.substring(0, value.length() - 2));
 					else if (buffer.size() > 2) {
+						System.out.println("파일이름1= "+filename);
 						MimeBodyPart bodyPart = new MimeBodyPart();
 						DataSource ds = new ByteArrayDataSource(buffer.toByteArray(), contentType, filename);
+						System.out.println("파일이름2= "+filename);
 						bodyPart.setDataHandler(new DataHandler(ds));
 						bodyPart.setDisposition("attachment; filename=\"" + filename + "\"");
 						bodyPart.setFileName(filename);
 						mailData.put(name, bodyPart);
+						System.out.println("파일이름3= "+filename);
 					}
 					name = null;
 					value = null;
@@ -250,7 +251,9 @@ public class HomeController extends HttpServlet{
 						name = tokenizer.nextToken();
 						state = 2;
 					} else if (token.startsWith(" filename")) {
-						filename = tokenizer.nextToken();
+						System.out.println("파일이름4= "+filename);
+						filename = MimeUtility.encodeText(tokenizer.nextToken());
+						System.out.println("파일이름5= "+filename);
 						StringTokenizer ftokenizer = new StringTokenizer(filename, "\\/:");
 						filename = ftokenizer.nextToken();
 						while (ftokenizer.hasMoreTokens())
@@ -277,61 +280,61 @@ public class HomeController extends HttpServlet{
 		return mailData;
 	}
 	
-	private void sendMail(HashMap mailData, AdviceVO vo) throws MessagingException {
-        System.setProperty("mail.smtp.starttls.enable", "true"); // gmail은 무조건 true 고정
-        System.setProperty("mail.smtp.auth", "true"); // gmail은 무조건 true 고정
-        System.setProperty("mail.smtp.host", "smtp.gmail.com"); // smtp 서버 주소
-        System.setProperty("mail.smtp.port", "587"); // gmail 포트
-        //구글 인증
-        Authenticator auth = new MyAuthentication();
-        Message msg = new MimeMessage(Session.getDefaultInstance(System.getProperties(), auth));
-        //받는사람
-        InternetAddress[] tos = InternetAddress.parse("bjj7425@naver.com");
-        msg.setRecipients(Message.RecipientType.TO, tos);
-        //한글을 위한 인코딩
-        msg.setHeader("Content-Type", "text/plain; charset=UTF-8");
-        //제목
-        msg.setSubject((String)mailData.get("subject"));
-        msg.setSentDate(new Date());
- 
-        String PwMeg = "회사명:" + vo.getCname() + "<br>" + "담당자:" + vo.getPname() + "<br>" + "연락처:" + vo.getPhone() + "<br>" + "이메일:" + vo.getEmail()
-		+ "<br>" + "현재사이트:" + vo.getNsite() + "<br>" + "참고사이트1:" + vo.getRsite1() + "<br>" + "참고사이트2:" + vo.getRsite2()
-		+ "<br>" + "업로드파일명:"+vo.getUpload() + "<br>" + "문의내용:"+vo.getContent();
-        
-        //첨부파일이 없으면 내용만 전송
-        if(null == mailData.get("upload")){
-        	
-        	msg.setText(PwMeg);;
-          } else {
-            //첨부파일이 있으면
-            BodyPart body = new MimeBodyPart();
-              BodyPart attachment = (BodyPart)mailData.get("upload");
-              body.setText(PwMeg);
-              MimeMultipart multipart = new MimeMultipart();
-              multipart.addBodyPart(body);
-              multipart.addBodyPart(attachment);
-              msg.setContent(multipart, "text/plain; charset=UTF-8");
-           }
-        //전송
-        Transport.send(msg);
-    }
+	public class ByteArrayDataSource implements DataSource {
+		
+		byte[] bytes;
+		String contentType;
+		String name;
+		
+		ByteArrayDataSource(byte[] bytes, String contentType, String name) {
+			this.bytes = bytes;
+			if (contentType == null)
+				this.contentType = "application/octet-stream";
+			else
+				this.contentType = contentType;
+			this.name = name;
+		}
+
+		@Override
+		public String getContentType() {
+			return contentType;
+		}
+
+		@Override
+		public InputStream getInputStream() {
+			// 가장 마지막의 CR/LF를 없앤다.
+			return new ByteArrayInputStream(bytes, 0, bytes.length - 2);
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public OutputStream getOutputStream() throws IOException {
+			throw new FileNotFoundException();
+		}
+	}
 	
-	 class MyAuthentication extends Authenticator {
-		 
-	        private PasswordAuthentication pa;
-	        private String id;
-	        private String pw;
-	 
-	        private MyAuthentication() {
-	 
-	            id = "bjj7425"; // 구글 ID
-	            pw = "qowowls1"; // 구글 비밀번호
-	            pa = new PasswordAuthentication(id, pw);
-	        }
-	 
-	        // 시스템에서 사용하는 인증정보
-	        public PasswordAuthentication getPasswordAuthentication() {
-	            return pa;
-	        }
-	    }
+	class MyAuthentication extends Authenticator {
+		
+        private PasswordAuthentication pa;
+        private String id;
+        private String pw;
+ 
+        private MyAuthentication() {
+ 
+            id = "bjj7425@gmail.com"; // 구글 ID
+            pw = "qowowls1"; // 구글 비밀번호
+            pa = new PasswordAuthentication(id, pw);
+        }
+ 
+        // 시스템에서 사용하는 인증정보
+        public PasswordAuthentication getPasswordAuthentication() {
+            return pa;
+        }
+    }
+
+	
 }

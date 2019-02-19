@@ -218,61 +218,61 @@
 			<div class="content_wrap">
 				<div class="container">
 					<div class="form_wrap">
-						<form id="f1" action="reg_advice" method="post"> 
-							<div class="sub_content01">
-								<h4 class="sub_title">- 개인정보처리방침</h4>
-								<div class="sub_content01_inner">
-									<jsp:include page="../include/personal_info.jsp"></jsp:include>
-								</div>
-								<label>
-									<input type="checkbox" value="">위 개인정보수집에 동의합니다.
-								</label>
-							</div><!-- sub_content01 end -->
-							<div class="sub_content02">
-								<h4 class="sub_title">- 상담&견적 문의</h4>
-								<div class="sub_content02_inner">
-									<table>
-										<tr>
-											<th>회사명</th>
-											<td><input type="text" name="cname"></td>
-											<th class="fc_or">* 담당자</th>
-											<td><input class="b_o" type="text" name="pname"></td>
-										</tr>
-										<tr>
-											<th class="fc_or">* 연락처</th>
-											<td><input class="b_o" type="text" name="phone"></td>
-											<th class="fc_or">* 이메일</th>
-											<td><input class="b_o" type="text" name="email"></td>
-										</tr>
-										<tr>
-											<th>현재사이트</th>
-											<td colspan="3"><input type="text" name="nsite"></td>
-										</tr>
-										<tr>
-											<th>참고사이트1</th>
-											<td colspan="3"><input type="text" name="rsite1"></td>
-										</tr>
-										<tr>
-											<th>참고사이트2</th>
-											<td colspan="3"><input type="text" name="rsite2"></td>
-										</tr>
-										<tr>
-											<th>첨부파일</th>
-											<td colspan="3"><input type="file" name="upload"></td>
-										</tr>
-										<tr>
-											<th>문의사항</th>
-											<td colspan="3"><textarea name="content"></textarea></td>
-										</tr>
-									</table>
-								</div><!-- sub_content02_inner end -->
-								<div class="submit_btn_wrap">
-									<input type="submit" value="문의신청">
-									<input type="reset" value="다시 작성">
-								</div>
-							</div><!-- sub_content02 end -->
-						</form>
-					</div><!-- form_wrap end -->
+		<form id="f1" action="reg_advice" method="post" enctype="multipart/form-data"> 
+			<div class="sub_content01">
+				<h4 class="sub_title">- 개인정보처리방침</h4>
+				<div class="sub_content01_inner">
+					<jsp:include page="../include/personal_info.jsp"></jsp:include>
+				</div>
+				<label>
+					<input type="checkbox" value="">위 개인정보수집에 동의합니다.
+				</label>
+			</div><!-- sub_content01 end -->
+			<div class="sub_content02">
+				<h4 class="sub_title">- 상담&견적 문의</h4>
+				<div class="sub_content02_inner">
+					<table>
+						<tr>
+							<th>회사명</th>
+							<td><input type="text" name="cname"></td>
+							<th class="fc_or">* 담당자</th>
+							<td><input class="b_o" type="text" name="pname"></td>
+						</tr>
+						<tr>
+							<th class="fc_or">* 연락처</th>
+							<td><input class="b_o" type="text" name="phone"></td>
+							<th class="fc_or">* 이메일</th>
+							<td><input class="b_o" type="text" name="email"></td>
+						</tr>
+						<tr>
+							<th>현재사이트</th>
+							<td colspan="3"><input type="text" name="nsite"></td>
+						</tr>
+						<tr>
+							<th>참고사이트1</th>
+							<td colspan="3"><input type="text" name="rsite1"></td>
+						</tr>
+						<tr>
+							<th>참고사이트2</th>
+							<td colspan="3"><input type="text" name="rsite2"></td>
+						</tr>
+						<tr>
+							<th>첨부파일</th>
+							<td colspan="3"><input type="file" name="upload"></td>
+						</tr>
+						<tr>
+							<th>문의사항</th>
+							<td colspan="3"><textarea name="content"></textarea></td>
+						</tr>
+					</table>
+				</div><!-- sub_content02_inner end -->
+				<div class="submit_btn_wrap">
+					<input type="submit" value="문의신청">
+					<input type="reset" value="다시 작성">
+				</div>
+			</div><!-- sub_content02 end -->
+		</form>
+	</div><!-- form_wrap end -->
 				</div><!-- container end -->
 			</div><!-- content_wrap end -->
 		</div>
