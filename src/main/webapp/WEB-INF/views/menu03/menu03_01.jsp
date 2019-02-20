@@ -30,8 +30,9 @@
 	}
 	.sub_top_Banner{
 		width:100%;
-		height:400px;
-		background: green;
+	}
+	.sub_top_Banner > img {
+		width:100%;
 	}
 	.sub_nav_wrap{
 		width:100%;
@@ -102,7 +103,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu03_top.png">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -119,7 +120,11 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
-				
+					<div class="table_wrap">
+						<table>
+							
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

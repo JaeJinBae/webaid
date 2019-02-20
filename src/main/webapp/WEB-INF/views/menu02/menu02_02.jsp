@@ -30,8 +30,9 @@
 	}
 	.sub_top_Banner{
 		width:100%;
-		height:400px;
-		background: green;
+	}
+	.sub_top_Banner > img{
+		width:100%;
 	}
 	.sub_nav_wrap{
 		width:100%;
@@ -80,11 +81,15 @@
 	}
 	.content_wrap{
 		width:100%;
+		background: #f7f7f7;
 	}
 	.container{
 		width:1100px;
 		margin:0 auto;
 		padding:100px 0;
+	}
+	.container > img{
+		width:100%;
 	}
 	#footer{
 		width:100%;
@@ -102,7 +107,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu02_top.png">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -121,7 +126,8 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
-				
+					<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_2_content0.png">
+					<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_2_content01.png">
 				</div>
 			</div>
 		</div>

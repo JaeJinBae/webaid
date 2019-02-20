@@ -30,8 +30,9 @@
 	}
 	.sub_top_Banner{
 		width:100%;
-		height:400px;
-		background: green;
+	}
+	.sub_top_Banner > img{
+		width:100%;
 	}
 	.sub_nav_wrap{
 		width:100%;
@@ -102,7 +103,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu02_top.png">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -121,7 +122,70 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
-				
+					<div class="table_wrap">
+						<table>
+							<tr>
+								<th>항목</th>
+								<th>Simple</th>
+								<th>Deluxe</th>
+								<th>Premium</th>
+							</tr>
+							<tr>
+								<th>제작비용</th>
+								<td>150 ~ 300만원</td>
+								<td>300 ~ 500만원</td>
+								<td>500만원 이상</td>
+							</tr>
+							<tr>
+								<th>페이지 수</th>
+								<td>
+									<p>- 메인페이지 1page</p>
+									<p>- 서브페이지 15page</p>
+									<p>- 게시판 5개 이내</p>
+								</td>
+								<td><p>- 메인페이지 1page</p>
+									<p>- 서브페이지 25page</p>
+									<p>- 게시판 10개 이내</p>
+								</td>
+								<td>
+									<p>- 메인페이지 1page</p>
+									<p>- 서브페이지 40page</p>
+									<p>- 게시판 15개 이내</p>
+								</td>
+							</tr>
+							<tr>
+								<th>디자인 시안 수정횟수</th>
+								<td>2회</td>
+								<td>2회</td>
+								<td>3회</td>
+							</tr>
+							<tr>
+								<th>페이지 수정횟수</th>
+								<td>2회</td>
+								<td>2회</td>
+								<td>3회</td>
+							</tr>
+							<tr>
+								<th>기능</th>
+								<td>게시판, 팝업</td>
+								<td>simple + 배너, 회원, 접속분석</td>
+								<td>Deluxe + 요청기능</td>
+							</tr>
+							<tr>
+								<th>개발도구 및 환경</th>
+								<td colspan="3">JAVA, HTML5, javascript, jquery, Spring Framework, MYSQL, Window</td>
+							</tr>
+							<tr>
+								<th>공통사항</th>
+								<td colspan="3">
+									<p>- 도메인&호스팅 1년 무료</p>
+									<p>- 구글, 네이버, 다음 주요포털 등록</p>
+									<p>- 게시판, 팝업 관리</p>
+									<p>- 온라인 마케팅 무료 상담</p>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
