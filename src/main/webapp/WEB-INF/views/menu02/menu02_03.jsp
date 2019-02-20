@@ -87,6 +87,12 @@
 		margin:0 auto;
 		padding:100px 0;
 	}
+	.table_wrap{
+		width:100%;
+	}
+	.table_wrap > table{
+		
+	}
 	#footer{
 		width:100%;
 	}
@@ -123,7 +129,7 @@
 			<div class="content_wrap">
 				<div class="container">
 					<div class="table_wrap">
-						<table>
+						<table class="tbl_price">
 							<tr>
 								<th>항목</th>
 								<th>Simple</th>
