@@ -85,7 +85,7 @@
 		background-size: cover; */
 	}
 	.container{
-		width:850px;
+		width:1100px;
 		margin:0 auto;
 		padding:100px 0;
 	}

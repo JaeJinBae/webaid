@@ -95,7 +95,7 @@
 		background: #f7f7f7;
 	}
 	.con_img > img{
-		width:1000px;
+		width:1100px;
 	}
 	.con_img:first-child > img{
 		width:1100px;

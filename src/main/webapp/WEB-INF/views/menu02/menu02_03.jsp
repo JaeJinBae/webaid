@@ -90,12 +90,46 @@
 	.table_wrap{
 		width:100%;
 	}
-	.table_wrap > table{
-		
+	.table_wrap > .tbl_price{
+		width:100%;
+		border:1px solid lightgray;
+	}
+	.tbl_price th{
+		font-size: 18px;
+		color: black;
+		font-weight: bold;
+		background: #f3f3f3;
+		border: 1px solid lightgray;
+		padding:20px 0;
+	}
+	.tbl_price td{
+		font-size:17px;
+		text-align: center;
+		border:1px solid lightgray;
+		padding:20px 0;
+	}
+	.tbl_price td > p{
+		font-size:17px;
+	}
+	.tbl_price td > ul{
+		width:300px;
+		margin: 0 auto;
+	}
+	.tbl_price td > ul > li{
+		text-align: left;
+		font-size:17px;
+		margin-bottom:5px;
+	}
+	.caution{
+		font-size:15px;
+		margin-bottom:15px;
+		margin-left:15px;
+		color: #267ddf;
+		font-weight: bold;
 	}
 	#footer{
 		width:100%;
-	}
+	} 
 }
 </style>
 <script>
@@ -129,6 +163,7 @@
 			<div class="content_wrap">
 				<div class="container">
 					<div class="table_wrap">
+						<p class="caution">※모든 제작 비용의 VAT(부가세)는 별도입니다.</p>
 						<table class="tbl_price">
 							<tr>
 								<th>항목</th>
@@ -184,14 +219,16 @@
 							<tr>
 								<th>공통사항</th>
 								<td colspan="3">
-									<p>- 도메인&호스팅 1년 무료</p>
-									<p>- 구글, 네이버, 다음 주요포털 등록</p>
-									<p>- 게시판, 팝업 관리</p>
-									<p>- 온라인 마케팅 무료 상담</p>
+									<ul>
+										<li>- 도메인&호스팅 1년 무료</li>
+										<li>- 구글, 네이버, 다음 주요포털 등록</li>
+										<li>- 게시판, 팝업 관리</li>
+										<li>- 온라인 마케팅 무료 상담</li>
+									</ul>
 								</td>
 							</tr>
 						</table>
-					</div>
+					</div><!-- table_wrap end -->
 				</div>
 			</div>
 		</div>
