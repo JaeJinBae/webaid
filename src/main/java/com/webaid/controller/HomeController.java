@@ -137,11 +137,14 @@ public class HomeController{
 		
 		logger.info("reg_advice 진입");
 		
+		
 		String to = "실제로 메일을 받을 주소";
 		
 		if (request.getContentType().startsWith("multipart/form-data")) {
 			try {
+				
 				HashMap data = getMailData(request, response);
+				
 				sendMail(data);
 
 				/*ServletContext sc = getServletContext();
@@ -153,7 +156,7 @@ public class HomeController{
 		} else {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 		}
-		return "redirect:/menu02_2";
+		return "redirect:/menu04_2";
 		
 	}
 	
@@ -180,7 +183,7 @@ public class HomeController{
         String PwMeg = "회사명:" + mailData.get("cname") + "\n" + "담당자:" + mailData.get("pname") + "\n" + "연락처:" + mailData.get("phone") + "\n" + "이메일:" + mailData.get("email")
 		+ "\n" + "현재사이트:" + mailData.get("nsite") + "\n" + "참고사이트1:" + mailData.get("rsite1") + "\n" + "참고사이트2:" + mailData.get("rsite2")
 		+ "\n" + "문의내용:"+mailData.get("content");
-        
+       
         //첨부파일이 없으면 내용만 전송
         if(null == mailData.get("upload")){
                  msg.setText(PwMeg);
@@ -215,6 +218,7 @@ public class HomeController{
 		HashMap mailData = new HashMap();
 
 		int i = in.readLine(bytes, 0, 512);
+		
 		while (-1 != i) {
 			String st = new String(bytes, 0, i);
 			if (st.startsWith(boundary)) {

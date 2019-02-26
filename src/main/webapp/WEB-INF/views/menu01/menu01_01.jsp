@@ -85,12 +85,26 @@
 		background-size: cover; */
 	}
 	.container{
-		width:1100px;
-		margin:0 auto;
-		padding:100px 0;
-	}
-	.container > img{ 
 		width:100%;
+		margin:0 auto;
+	}
+	.con_img{
+		width:100%;
+		text-align: center;
+	}
+	.con_img > img{
+		width:1000px;
+	}
+	.con_img_title{
+		background: #f7feff;
+	}
+	.con_img_1{
+		background: url("${pageContext.request.contextPath}/resources/images/pc_menu01_content01_bg.png");
+		background-size: contain;
+	}
+	.con_img_2{
+		background: url("${pageContext.request.contextPath}/resources/images/pc_menu01_content02_bg.png");
+		background-size: cover;
 	}
 	#footer{
 		width:100%;
@@ -108,7 +122,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu01_top_banner.png">
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu01_top.png">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -125,10 +139,16 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
-					<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content01.png">
-					<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content02.png">
-					<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content03.png">
-				</div>
+					<div class="con_img con_img_title">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content_title.png">
+					</div>
+					<div class="con_img con_img_1">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content01.png">
+					</div>
+					<div class="con_img con_img_2">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu01_content02.png">
+					</div>
+				</div><!-- container end -->
 			</div>
 		</div>
 		<div id="footer">

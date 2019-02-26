@@ -85,20 +85,20 @@
 	.container{
 		width:100%;
 		margin:0 auto;
-		padding:100px 0;
 	}
 	.con_img{
 		width:100%;
 		text-align: center;
 	}
-	.con_img:nth-child(3){
-		background: #f7f7f7;
-	}
 	.con_img > img{
-		width:1100px;
+		width:1000px;
 	}
-	.con_img:first-child > img{
-		width:1100px;
+	.con_img_title{
+		background: #f7feff;
+	}
+	.con_img_1{
+		background: url("${pageContext.request.contextPath}/resources/images/pc_menu02_1_content01_bg.jpg");
+		background-size: contain;
 	}
 	#footer{
 		width:100%;
@@ -116,7 +116,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu02_top.png">
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu02_top.jpg">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -135,19 +135,13 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
-					<div class="con_img">
-						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_1_content0.png">
+					<div class="con_img con_img_title">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_1_content_title.png">
 					</div>
-					<div class="con_img">
+					<div class="con_img con_img_1">
 						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_1_content01.png">
 					</div>
-					<div class="con_img">
-						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_1_content02.png">
-					</div>
-					<div class="con_img">
-						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_1_content03.png">
-					</div>
-				</div>
+				</div><!-- container end -->
 			</div>
 		</div>
 		<div id="footer">

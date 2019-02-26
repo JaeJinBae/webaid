@@ -83,14 +83,22 @@
 		width:100%;
 	}
 	.container{
-		width:1100px;
-		margin:0 auto;
-		padding:50px 0;
-		padding-top:100px;
+		width:100%;
+	}
+	.con_img{
+		width:100%;
+		text-align: center;
+	}
+	.con_img > img{
+		width:900px;
+	}
+	.con_img_title{
+		background: #f7feff;
 	}
 	.tableWrap{
-		width:100%;
+		width:1100px;
 		margin:0 auto;
+		padding:100px 0;
 	}
 	.tableWrap > table{
 		width:95%;
@@ -192,7 +200,7 @@
 		</div>
 		<div id="section">
 			<div class="sub_top_Banner">
-				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu04_top.png">
+				<img class="pc_ver" src="${pageContext.request.contextPath}/resources/images/pc_menu04_top.jpg">
 			</div>
 			<div class="sub_nav_wrap">
 				<div class="subMidContent">
@@ -210,6 +218,9 @@
 			</div><!-- sub_nav_wrap -->
 			<div class="content_wrap">
 				<div class="container">
+					<div class="con_img con_img_title">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu04_1_content_title.png">
+					</div>
 					<div class="tableWrap">
 						<table>
 							<tr>
