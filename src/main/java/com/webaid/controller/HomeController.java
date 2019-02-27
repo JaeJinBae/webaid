@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.StringTokenizer;
 
 import javax.activation.DataHandler;
@@ -40,10 +39,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.webaid.domain.AdviceVO;
 import com.webaid.domain.NoticeVO;
 import com.webaid.domain.PageMaker;
 import com.webaid.domain.SearchCriteria;
 import com.webaid.service.NoticeService;
+import com.webaid.util.SendMailUtil;
 
 /**
  * Handles requests for the application home page.
@@ -57,10 +58,20 @@ public class HomeController{
 	private NoticeService nService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Model model) {
 		logger.info("home");
 
 		return "main/index";
+	}
+	
+	@RequestMapping(value="/mainpage_request", method=RequestMethod.POST)
+	public String mainpage_request(AdviceVO vo){
+		logger.info("main page request POST");
+		
+		SendMailUtil smu=new SendMailUtil();
+		smu.SendEmail(vo);
+		
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/menu01_1", method = RequestMethod.GET)

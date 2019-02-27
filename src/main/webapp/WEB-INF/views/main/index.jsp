@@ -52,22 +52,53 @@
 	}
 	.mainBanner{
 		width:100%;
-		height:600px;
-		background: red;
+	}
+	.mainBanner img{
+		width:100%;
 	}
 	.container{
 		width:100%;
 	}
 	.content_wrap{
+		width:100%;
+	}
+	.content01_wrap{
+		width:100%;
+		background: url("${pageContext.request.contextPath}/resources/images/pc_main_content01_bg.jpg");
+		background-size: cover;
+	}
+	.content01_inner_div{
 		width:1100px;
+		margin:0 auto;
+		padding-bottom:20px;
+	} 
+	.content01_inner_div > img{
+		width:100%;
+	}
+	.content02_wrap{
+		width:100%;
+		background: url("${pageContext.request.contextPath}/resources/images/pc_main_content02_bg3.jpg");
+		background-size: cover;
+		margin-top:30px;
+	}
+	.content02_inner_div{
+		width:1100px;
+		margin:0 auto;
+		padding:20px 0;
+	}
+	.content02_inner_div > img{
+		width:100%;
 	}
 	.request_wrap{ 
 		width:100%;
+		background: url("${pageContext.request.contextPath}/resources/images/pc_main_request_bg.jpg");
+		background-size: cover;
 	} 
 	.request_content{
 		width:1100px;
 		margin:0 auto;
 		overflow:hidden;
+		padding:70px 0;
 	}
 	.request_content_box1{
 		width:400px;
@@ -116,12 +147,30 @@
 		padding:5px;
 		font-size:18px;
 	}
+	.request_content_box2 > form > table td > input:-ms-input-placeholder:not(.f_c_r){
+		color:#8f8f8f !important;
+	}
+	.f_c_r::placeholder{
+		color: #A50000;
+	}
+	.f_c_r:-ms-input-placeholder {
+		color: #A50000 !important;
+	}
+	.f_c_r::-webkit-input-placeholder {
+		color: #A50000;
+	} 
+	.f_c_r::-moz-placeholder {
+		color: #A50000;
+	}
 	.request_content_box2 > form > table td > textarea{
 		width:100%;
 		height:200px;
 		font-size:18px;
 		padding:5px;
 		resize:none;
+	}
+	.request_content_box2 > form > table td > textarea:-ms-input-placeholder{
+		color:#8f8f8f !important;
 	}
 	.personal_info{
 		float:right;
@@ -135,6 +184,8 @@
 		height:300px;
 		overflow: scroll;
 		border:1px solid lightgray;
+		padding:10px;
+		background: #fff;
 	}
 	.personal_info > label{
 		display:block;
@@ -158,12 +209,62 @@
 		background: #033c60;
 		color:#fff;
 		border-style:none;
+		cursor: pointer;
 	}
 	#footer{
 		width:100%;
 	}
 }
 </style>
+<script>
+	$(function(){
+		$(".mainBanner").slick({
+			arrows:false,
+			infinite:true,
+			speed:500,
+			fade:true,
+			cssEase:'linear',
+			autoplay:true,
+			autoplaySpeed:4000,
+			dots:true,
+		});	
+		
+		//간편견적문의
+		$("#form_tag").submit(function(){
+			var pname = $("input[name='pname']").val();
+			var phone = $("input[name='phone']").val();
+			var email = $("input[name='email']").val();
+			var agreement_btn = $(".agreement_btn").prop("checked");
+			
+			if(pname=="" || pname==null){
+				alert("담당자를 입력해주세요.");
+				return false;
+			}
+			if(phone == "" || phone == null){
+				alert("연락처를 입력해주세요.");
+				return false;
+			}
+			if(email=="" || email==null){
+				alert("이메일을 입력해주세요.");
+				return false;
+			}
+			if(agreement_btn == false){
+				alert("개인정보수집에 동의하지 않으면 문의신청을 할 수 없습니다.");
+				return false;
+			}
+			
+			var ask = confirm("입력하신 내용을 의뢰하시겠습니까?");
+			
+			if(ask == true){
+				
+			}else{
+				return false;
+			}
+			
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<div id="all_wrap">
@@ -172,12 +273,24 @@
 		</div>
 		<div id="section">
 			<div class="mainBanner">
-			
-			</div>
+				<img src="${pageContext.request.contextPath}/resources/images/pc_main_banner1.jpg">
+				<img src="${pageContext.request.contextPath}/resources/images/pc_main_banner2.jpg">
+				<img src="${pageContext.request.contextPath}/resources/images/pc_main_banner3.jpg">
+			</div><!-- mainBanner end -->
 			<div class="container">
 				<div class="content_wrap">
-				
-				</div>
+					<div class="content01_wrap">
+						<div class="content01_inner_div">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_title.png">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_img1.png">
+						</div><!-- content01_inner_div end -->
+					</div><!-- content01_wrap end -->
+					<div class="content02_wrap">
+						<div class="content02_inner_div">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content02_img1.png">
+						</div><!-- content02_inner_div end -->
+					</div><!-- content02_wrap end -->
+				</div><!-- content_wrap end -->
 				<div class="request_wrap" id="request_wrap">
 					<div class="request_content"><!-- http://www.way21.co.kr/homepage/homepage.php -->
 						<div class="request_content_box1">
@@ -208,34 +321,34 @@
 							</table>
 						</div><!-- request_content_box1 -->
 						<div class="request_content_box2">
-							<form action="" method="post">
+							<form id="form_tag"action="mainpage_request" method="post">
 								<table>
 									<tr>
-										<td><input type="text" placeholder="회사"></td>
+										<td><input type="text" name="cname" placeholder="회사"></td>
 									</tr>
 									<tr>
-										<td><input type="text" placeholder="담당자"></td>
+										<td><input class="f_c_r" type="text" name="pname" placeholder="담당자 (필수입력)"></td>
 									</tr>
 									<tr>
-										<td><input type="text" placeholder="연락처"></td>
+										<td><input class="f_c_r" type="text" name="phone" placeholder="연락처 (필수입력)"></td>
 									</tr>
 									<tr>
-										<td><input type="text" placeholder="이메일"></td>
+										<td><input class="f_c_r" type="text" name="email" placeholder="이메일 (필수입력)"></td>
 									</tr>
 									<tr>
-										<td><input type="text" placeholder="예산"></td>
+										<td><input type="text" name="budget" placeholder="예산"></td>
 									</tr>
 									<tr>
-										<td><textarea name="" placeholder="문의내용"></textarea></td>
+										<td><textarea name="content" placeholder="문의내용(참고사이트, 문의사항 등)"></textarea></td>
 									</tr>
 								</table>
 								<div class="personal_info">
 									<h3>개인정보수집에 관한 동의</h3>
 									<div class="personal_txt">
-										
+										<jsp:include page="../include/personal_info.jsp"></jsp:include>
 									</div>
 									<label>
-										<input type="checkbox" value="">위 개인정보수집에 동의합니다.
+										<input class="agreement_btn" type="checkbox" value="true">위 개인정보수집에 동의합니다.
 									</label>
 									<div class="submitBtn">
 										<input type="submit" value="문의신청">

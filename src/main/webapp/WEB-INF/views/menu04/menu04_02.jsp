@@ -200,7 +200,42 @@
 }
 </style>
 <script>
-
+$(function(){
+	$("#f1").submit(function(e){
+		//e.preventDefault();
+		
+		var pname=$("input[name='pname']").val();
+		var phone=$("input[name='phone']").val();
+		var email=$("input[name='email']").val();
+		var agreement_btn = $(".agreement_btn").prop("checked");
+		
+		if(agreement_btn == false){
+			alert("개인정보수집에 동의하지 않으면 문의신청을 할 수 없습니다.");
+			return false;
+		}
+		if(pname=="" || pname==null){
+			alert("담당자를 입력해주세요.");
+			return false;
+		}
+		if(phone == "" || phone == null){
+			alert("연락처를 입력해주세요.");
+			return false;
+		}
+		if(email=="" || email==null){
+			alert("이메일을 입력해주세요.");
+			return false;
+		}
+		
+		var ask = confirm("입력하신 내용을 의뢰하시겠습니까?");
+		
+		if(ask == true){
+			
+		}else{
+			return false;
+		}
+		
+	});
+});
 </script>
 </head>
 <body>
@@ -239,7 +274,7 @@
 									<jsp:include page="../include/personal_info.jsp"></jsp:include>
 								</div>
 								<label>
-									<input type="checkbox" value="">위 개인정보수집에 동의합니다.
+									<input class="agreement_btn" type="checkbox" value="true">위 개인정보수집에 동의합니다.
 								</label>
 							</div><!-- sub_content01 end -->
 							<div class="sub_content02">

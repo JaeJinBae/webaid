@@ -5,10 +5,7 @@ public class AdviceVO {
 	private String pname;
 	private String phone;
 	private String email;
-	private String nsite;
-	private String rsite1;
-	private String rsite2;
-	private String upload;
+	private String budget;
 	private String content;
 
 	public AdviceVO() {
@@ -47,36 +44,12 @@ public class AdviceVO {
 		this.email = email;
 	}
 
-	public String getNsite() {
-		return nsite;
+	public String getBudget() {
+		return budget;
 	}
 
-	public void setNsite(String nsite) {
-		this.nsite = nsite;
-	}
-
-	public String getRsite1() {
-		return rsite1;
-	}
-
-	public void setRsite1(String rsite1) {
-		this.rsite1 = rsite1;
-	}
-
-	public String getRsite2() {
-		return rsite2;
-	}
-
-	public void setRsite2(String rsite2) {
-		this.rsite2 = rsite2;
-	}
-
-	public String getUpload() {
-		return upload;
-	}
-
-	public void setUpload(String upload) {
-		this.upload = upload;
+	public void setBudget(String budget) {
+		this.budget = budget;
 	}
 
 	public String getContent() {
@@ -89,10 +62,11 @@ public class AdviceVO {
 
 	@Override
 	public String toString() {
-		return "AdviceVO [cname=" + cname + ", pname=" + pname + ", phone=" + phone + ", email=" + email + ", nsite="
-				+ nsite + ", rsite1=" + rsite1 + ", rsite2=" + rsite2 + ", upload=" + upload + ", content=" + content
-				+ "]";
+		return "AdviceVO [cname=" + cname + ", pname=" + pname + ", phone=" + phone + ", email=" + email + ", budget="
+				+ budget + ", content=" + content + "]";
 	}
+
+	
 
 	
 

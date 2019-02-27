@@ -19,7 +19,7 @@ public class SendMailUtil{
 		System.out.println("sendMailUtil 진입");
 		String host = "smtp.naver.com";
 		String user = "bjj7425";
-		String password = "qowowls7425!";
+		String password = "qowowls12!@";
 		int port=465;
 		
 		Properties props = new Properties();
@@ -50,8 +50,7 @@ public class SendMailUtil{
 				e.printStackTrace();
 			}
 			String PwMeg = "회사명:" + vo.getCname() + "<br>" + "담당자:" + vo.getPname() + "<br>" + "연락처:" + vo.getPhone() + "<br>" + "이메일:" + vo.getEmail()
-					+ "<br>" + "현재사이트:" + vo.getNsite() + "<br>" + "참고사이트1:" + vo.getRsite1() + "<br>" + "참고사이트2:" + vo.getRsite2()
-					+ "<br>" + "업로드파일명:"+vo.getUpload() + "<br>" + "문의내용:"+vo.getContent();
+					+ "<br>" + "문의내용:"+vo.getContent();
 
 			// Text/Project_JSP/img/login/login.gif
 			message.setText(PwMeg, "UTF-8");
