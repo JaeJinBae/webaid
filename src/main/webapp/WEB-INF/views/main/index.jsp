@@ -281,20 +281,20 @@
 				<div class="content_wrap">
 					<div class="content01_wrap">
 						<div class="content01_inner_div">
-							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_title.png">
-							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_img1.png">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_title.png" draggable="false">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_img1.png" draggable="false">
 						</div><!-- content01_inner_div end -->
 					</div><!-- content01_wrap end -->
 					<div class="content02_wrap">
 						<div class="content02_inner_div">
-							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content02_img1.png">
+							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content02_img1.png" draggable="false">
 						</div><!-- content02_inner_div end -->
 					</div><!-- content02_wrap end -->
 				</div><!-- content_wrap end -->
 				<div class="request_wrap" id="request_wrap">
 					<div class="request_content"><!-- http://www.way21.co.kr/homepage/homepage.php -->
 						<div class="request_content_box1">
-							<h1>견적문의</h1>
+							<h1>간편문의</h1>
 							<p class="req_txt1">다양한 업종의 고객님들과 함께하며 쌓은 노하우로</p>
 							<p class="req_txt2">최고의 결과물을 전해드립니다.</p>
 							<table>

@@ -130,7 +130,7 @@
 			<div class="content_wrap">
 				<div class="container">
 					<div class="con_img con_img_title">
-						<img src="${pageContext.request.contextPath}/resources/images/pc_menu02_3_content_title.png">
+						<img src="${pageContext.request.contextPath}/resources/images/pc_menu03_content_title.png">
 					</div>
 					<div class="table_wrap">
 						<table>
