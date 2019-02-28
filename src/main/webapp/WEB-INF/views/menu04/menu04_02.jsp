@@ -92,13 +92,13 @@
 	.con_img > img{
 		width:900px;
 	}
-	.con_img_title{
+	/* .con_img_title{
 		background: #f7feff;
-	}
+	} */
 	.form_wrap{
 		width:1100px;
 		margin:0 auto;
-		padding:100px 0;
+		padding-bottom:100px;
 	}
 	#f1{
 		width:100%;
