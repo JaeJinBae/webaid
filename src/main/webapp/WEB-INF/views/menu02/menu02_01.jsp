@@ -10,7 +10,7 @@
 <title>홈페이지제작 웹에이드</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1100px, initial-scale=1.0">
 <style>
 @media only screen and (min-width:320px) and (max-width:767px){
 

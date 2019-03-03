@@ -21,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1100px, initial-scale=1.0">
 <style>
 @media only screen and (min-width:320px) and (max-width:767px){
 	
@@ -61,6 +61,21 @@
 	}
 	.content_wrap{
 		width:100%;
+	}
+	.content00_wrap{
+		width:100%;
+		padding:60px 0;
+	}
+	.content00_inner_div{
+		width:1100px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.content00_inner_div > a{
+		/* width: 24%; */
+	}
+	.content00_inner_div > a > img{
+		/* width:100%; */
 	}
 	.content01_wrap{
 		width:100%;
@@ -279,6 +294,22 @@
 			</div><!-- mainBanner end -->
 			<div class="container">
 				<div class="content_wrap">
+					<div class="content00_wrap">
+						<div class="content00_inner_div">
+							<a href="${pageContext.request.contextPath}/menu01_1">
+								<img src="${pageContext.request.contextPath}/resources/images/pc_main_content00_img1.jpg" draggable="false">
+							</a>
+							<a href="${pageContext.request.contextPath}/menu02_1">
+								<img src="${pageContext.request.contextPath}/resources/images/pc_main_content00_img2.jpg" draggable="false">
+							</a>
+							<a href="${pageContext.request.contextPath}/menu02_2">
+								<img src="${pageContext.request.contextPath}/resources/images/pc_main_content00_img3.jpg" draggable="false">
+							</a>
+							<a href="${pageContext.request.contextPath}/menu02_3">
+								<img src="${pageContext.request.contextPath}/resources/images/pc_main_content00_img4.jpg" draggable="false">
+							</a>
+						</div><!-- content01_inner_div end -->
+					</div><!-- content01_wrap end -->
 					<div class="content01_wrap">
 						<div class="content01_inner_div">
 							<img src="${pageContext.request.contextPath}/resources/images/pc_main_content01_title.png" draggable="false">
