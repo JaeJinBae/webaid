@@ -134,6 +134,24 @@ public class HomeController{
 		model.addAttribute("pageMaker", pageMaker);
 		return "menu04/menu04_01";
 	}
+	
+	@RequestMapping(value = "/menu04_1Read", method = RequestMethod.GET)
+	public String menu04_1Read(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		logger.info("menu04_1Read GET");
+
+		NoticeVO vo=nService.selectOne(bno);
+		nService.updateCnt(bno);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+		
+		model.addAttribute("item", vo);
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "menu04/menu04_01Read";
+	}
 
 	@RequestMapping(value = "/menu04_2", method = RequestMethod.GET)
 	public String menu04_2() {
@@ -347,6 +365,18 @@ public class HomeController{
             return pa;
         }
     }
-
 	
+	@RequestMapping(value = "/personal_info", method = RequestMethod.GET)
+	public String personal_info() {
+		logger.info("personal_info GET");
+
+		return "menu_footer/personal_info";
+	}
+	
+	@RequestMapping(value = "/no_collect_email", method = RequestMethod.GET)
+	public String no_collect_email() {
+		logger.info("no_collect_email GET");
+
+		return "menu_footer/no_collect_email";
+	}
 }

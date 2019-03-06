@@ -123,8 +123,8 @@
 		font-size:45px;
 	}
 	.request_content_box1 > p{
-		font-size:18px;
-		line-height: 25px;
+		font-size:20px;
+		line-height: 30px;
 	}
 	.req_txt1{
 		margin-top:20px;
@@ -204,7 +204,7 @@
 	}
 	.personal_info > label{
 		display:block;
-		margin: 10px 0 24px 0;
+		margin: 10px 0 18px 0;
 		font-size:14px;
 	}
 	.personal_info > label > input{

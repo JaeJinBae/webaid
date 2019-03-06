@@ -190,7 +190,27 @@
 }
 </style>
 <script>
-
+$(function(){
+	//게시판 검색
+    $("#searchBtn").click(function(){
+    	var s=$("select[name='searchType']").val();
+		var searchType = encodeURIComponent(s);
+		var k=$("input[name='keyword']").val();
+		var keyword = encodeURIComponent(k);
+		location.href="menu04_1${pageMaker.makeQuery(1)}&searchType="+searchType+"&keyword="+keyword;
+	});
+	
+	//익스플로러에서 한글 검색 후 read로 넘어갈 때 인코딩 문제 아래와 같이 해결
+	$(".title > a").click(function(e){
+		e.preventDefault();
+		var bno=$(this).parent().parent().find(".bno").text();
+		var s=$("select[name='searchType']").val();
+		var searchType = encodeURIComponent(s);
+		var k=$("input[name='keyword']").val();
+		var keyword = encodeURIComponent(k);
+		location.href="menu04_1Read${pageMaker.makeQuery(pageMaker.cri.page)}&searchType="+searchType+"&keyword="+keyword+"&bno="+bno;
+	});
+});
 </script>
 </head>
 <body>

@@ -96,13 +96,46 @@
 	.con_img_title{
 		background: #f7feff;
 	}
+	.table_wrap{
+		width:1100px;
+		margin: 0 auto;
+		margin-bottom:100px;
+	}
+	.table_wrap > table tr td{
+		width:253px;
+		display:inline-block;
+		margin:0 10px 40px 10px;
+	}
+	.table_wrap > table tr td > .thumbnail_div{
+		width:100%;
+		height:218px;
+		overflow:hidden;
+		border:1px solid lightgray;
+	}
+	.table_wrap > table tr td > .thumbnail_div > a, .table_wrap > table tr td > .thumbnail_div > a > img{
+		width:100%;
+	}
+	.table_wrap > table tr td > p{
+		width:100%;
+		margin-top:10px;
+		text-align: center;
+		font-size:18px;
+		letter-spacing: -2px;
+	} 
 	#footer{
 		width:100%;
 	}
 }
 </style>
 <script>
-
+$(function(){
+	$(".thumbnail_div > a, .thumbnail_p > a").click(function(e){
+		e.preventDefault();
+		var thumb_url=$(this).attr("href");
+		window.open(thumb_url);
+		
+	});
+});
 </script>
 </head>
 <body>
@@ -134,7 +167,59 @@
 					</div>
 					<div class="table_wrap">
 						<table>
-							
+							<tr>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.uhan-hospital.com"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_uhan.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.uhan-hospital.com">유한마취통증의학과</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.kt-telecop.com"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_kt.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.kt-telecop.com">케이티텔레캅</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.119-law.com"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_kim.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.119-law.com">김헌석법무사사무소</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.euksan.com/"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_euksan.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.euksan.com/">억산한의원</a></p>
+								</td>
+							</tr>
+							<tr>
+								
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.honorsauto.com/"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_honorsauto.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.honorsauto.com/">아너스오토</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.xn--hh0bs27bu7an33a.com/"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_gwihan.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.xn--hh0bs27bu7an33a.com/">귀한인연</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.ifit-s.com/"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_ifits.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.ifit-s.com/">아이핏S</a></p>
+								</td>
+								<td>
+									<div class="thumbnail_div">
+										<a href="http://www.amiso820.com/"><img src="${pageContext.request.contextPath}/resources/portfolio_thumb/thumb_amiso.jpg"></a>
+									</div>
+									<p class="thumbnail_p"><a href="http://www.amiso820.com/">아미소</a></p>
+								</td>
+							</tr>
 						</table>
 					</div>
 				</div>

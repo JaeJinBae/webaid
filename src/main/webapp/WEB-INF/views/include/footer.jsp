@@ -59,8 +59,8 @@
 <div class="footer_wrap">
 	<div class="f_top_info"> 
 		<p><a href="${pageContext.request.contextPath}/menu01_1">회사소개</a></p>
-		<p><a href="${pageContext.request.contextPath}/">개인정보처리방침</a></p>
-		<p><a href="${pageContext.request.contextPath}/">이메일무단수집거부</a></p>
+		<p><a href="${pageContext.request.contextPath}/personal_info">개인정보처리방침</a></p>
+		<p><a href="${pageContext.request.contextPath}/no_collect_email">이메일무단수집거부</a></p>
 		<p><a href="${pageContext.request.contextPath}/menu04_1">공지사항</a></p>
 		<p><a href="${pageContext.request.contextPath}/menu04_2">상담문의</a></p>
 	</div><!-- f_top_info -->

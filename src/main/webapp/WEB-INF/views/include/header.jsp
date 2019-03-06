@@ -11,7 +11,18 @@
 	.topInfo{
 		width:100%;
 		height:40px;
-		background: #efefef;
+		background: #072331;
+	}
+	.topInfo_txt_div{
+		width:1100px;
+		margin:0 auto;
+		text-align: right;
+	}
+	.topInfo_txt_div > a{
+		color:#fff;
+		font-size:16px;
+		line-height: 40px;
+		margin-left:20px;
 	}
 	.header_container{
 		width:1100px;
@@ -63,7 +74,10 @@
 </script>
 <div class="header_wrap">
 	<div class="topInfo">
-		
+		<div class="topInfo_txt_div">
+			<a href="tel:053-983-7425">전화상담: 053-983-7425</a>
+			<a href="http://pf.kakao.com/_xhxjdDj">카카오톡 상담: webaid</a>
+		</div>
 	</div>
 	<div class="header_container">
 		<div class="logo_wrap">
