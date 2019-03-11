@@ -75,8 +75,8 @@
 <div class="header_wrap">
 	<div class="topInfo">
 		<div class="topInfo_txt_div">
-			<a href="tel:053-983-7425">전화상담: 053-983-7425</a>
-			<a href="http://pf.kakao.com/_xhxjdDj">카카오톡 상담: webaid</a>
+			<!-- <a href="tel:053-983-7425">전화상담: 053-983-7425</a>
+			<a href="http://pf.kakao.com/_xhxjdDj">카카오톡 상담: webaid</a> -->
 		</div>
 	</div>
 	<div class="header_container">
