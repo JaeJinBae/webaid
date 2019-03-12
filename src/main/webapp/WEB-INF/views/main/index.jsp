@@ -272,7 +272,7 @@
 			
 			if(ask == true){
 				
-			}else{
+			}else if(ask==false){
 				return false;
 			}
 			
