@@ -229,6 +229,9 @@ public class HomeController{
            }
         //전송
         Transport.send(msg);
+        //=======================================================
+        
+        
     }
 
 	private HashMap getMailData(HttpServletRequest request, HttpServletResponse response)

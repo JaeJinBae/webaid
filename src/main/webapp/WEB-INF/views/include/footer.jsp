@@ -77,7 +77,7 @@
 			<p>MAIL: master@webaid.co.kr</p>
 			<p>본 홈페이지에 게시된 이메일주소가 자동수집되는것을 거부하며, 이를 위반 시 정보통신망법에 의해 처벌됨을 유념하시길 바랍니다.</p>
 		</div><!-- f_mid_info -->
-		<div class="f_bottom_info">
+		<div class="f_bottom_info" id="tt">
 			<p>Copyrightsⓒ 2018 WEBAID All Rights Reserved.</p>
 		</div>
 	</div>
